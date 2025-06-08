@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjsjiuf0w6d2c"]
+
+[ext_resource type="Texture2D" uid="uid://b611yvhj23lkr" path="res://kartinki/Заставка.jpg" id="1_5pjts"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dpwf5"]
+albedo_texture = ExtResource("1_5pjts")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jdr3s"]
+size = Vector2(10, 5)
+
+[node name="ulica" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_dpwf5")
+mesh = SubResource("PlaneMesh_jdr3s")

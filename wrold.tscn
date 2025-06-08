@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://crb4la5cumxk4"]
+
+[ext_resource type="PackedScene" uid="uid://cp57fpnq4643" path="res://komnata.tscn" id="1_dm1bw"]
+[ext_resource type="Script" uid="uid://t3te25d5vm75" path="res://wrold.gd" id="1_pb1bd"]
+[ext_resource type="PackedScene" uid="uid://bjsjiuf0w6d2c" path="res://ulica.tscn" id="2_vuk21"]
+[ext_resource type="PackedScene" uid="uid://cpjhrj8a7e6w" path="res://vnutri.tscn" id="3_dxh5b"]
+[ext_resource type="PackedScene" uid="uid://ct4idk28raa44" path="res://2d/startstartbutton.tscn" id="4_g1wnu"]
+
+[sub_resource type="Environment" id="Environment_dlx50"]
+background_mode = 1
+background_color = Color(0.317647, 0.721569, 0.854902, 1)
+background_energy_multiplier = 2.23
+ambient_light_energy = 1.67
+fog_enabled = true
+fog_light_energy = 3.02
+
+[node name="wrold" type="Node3D"]
+script = ExtResource("1_pb1bd")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 3.34867, 4.13235)
+light_color = Color(0.863516, 0.803481, 0.550045, 1)
+light_energy = 0.515
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_dlx50")
+
+[node name="komnata" parent="." instance=ExtResource("1_dm1bw")]
+
+[node name="ulica" parent="." instance=ExtResource("2_vuk21")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -10)
+
+[node name="vnutri" parent="." instance=ExtResource("3_dxh5b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.097, 2.788, -3.201)
+
+[node name="Startstartbutton" parent="." instance=ExtResource("4_g1wnu")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
